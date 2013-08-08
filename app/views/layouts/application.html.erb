@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cross-Stitch Challenge</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="header">
+Header area
+</div>
+
+<div id="content">
+	<div id="navigation">
+	</div>
+
+	<div id="body">
+		<%= yield %>
+	</div>
+
+	<div id="news">
+
+	</div>
+</div>
+
+<div id="footer">
+<a href="mailto:mswhat298@gmail.com"><font size="1">Contact Us</font></a><font size="1"> | &copy;2013 Michael Whatley </font>
+</div>
+
+</body>
+</html>
