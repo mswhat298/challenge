@@ -1,5 +1,8 @@
 Challenge::Application.routes.draw do
-  root 'projects#index'
+  root 'home#index'
+    get "home/index"
+    get "home/signin"
+ 
 
   resources :projects
 
