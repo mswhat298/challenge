@@ -2,12 +2,12 @@
 <html>
 <head>
   <title>Cross-Stitch Challenge</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="header">
+<!--<div id="header">
 	<div id="menuleft">
 		<%= link_to 'Home', '/home/index' %>
 	</div>
@@ -16,24 +16,33 @@
 		<%= link_to 'Sign In', '#' %>
 	</div>
 
+</div>-->
+<header class="navbar navbar-fixed-top navbar-inverse">
+	<div class="navbar-inner">
+		<div class="container">
+			<%= link_to 'Home', '/home/index', id: "logo" %>
+				<nav>
+					<ul class="nav pull-right">
+						<li><%= link_to "Home", '#' %></li>
+						<li><%= link_to "Help", '#' %></li>
+						<li><%= link_to "Sign In", '#' %></li>
+					</ul>
+				</nav>
+		</div>
+	</div>
+</header>
+
+
+<div class="container">
+<%= yield %>
+<%= render 'layouts/footer' %>
 </div>
 
-<div id="content">
-	<div id="navigation">
-	</div>
 
-	<div id="body">
-		<%= yield %>
-	</div>
-
-	<div id="news">
-
-	</div>
-</div>
-
-<div id="footer">
+<!-- <div id="footer">
 <a href="mailto:mswhat298@gmail.com"><font size="1">Contact Us</font></a><font size="1"> | &copy;2013 Michael Whatley </font>
-</div>
+</div> -->
+
 
 </body>
 </html>
