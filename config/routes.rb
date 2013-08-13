@@ -2,6 +2,7 @@ Challenge::Application.routes.draw do
   root 'home#index'
     get "home/index"
     get "home/signin"
+    get "home/about"
  
 
   resources :projects

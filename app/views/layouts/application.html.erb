@@ -22,10 +22,15 @@
 		<div class="container">
 			<%= link_to 'Home', '/home/index', id: "logo" %>
 				<nav>
-					<ul class="nav pull-right">
-						<li><%= link_to "Home", '#' %></li>
-						<li><%= link_to "Help", '#' %></li>
+					<ul class="nav pull-left">
 						<li><%= link_to "Sign In", '#' %></li>
+					</ul>
+				</nav>
+				<nav>
+					<ul class="nav pull-right">
+						<li><%= link_to "About", '/home/about' %></li>
+						<li><a href="http://hoffmandis.com/index.cfm?page=shoplinks" target="_blank">Find A Shop</a></li>
+
 					</ul>
 				</nav>
 		</div>

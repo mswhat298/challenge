@@ -1,11 +1,15 @@
-<h1>Current Challenge</h1>
-<p>Can you teach someone to teach this project?</p>
-
+<h1>Current Challenges</h1>
+<div align="center"><h5>Can you teach someone to teach one of these projects?</h5></div>
 <% for project in @projects %>
 	<b><%= project.name %></b><br/><br/>
-	Materials Needed:<br/>
-	<%= project.materials %><br/><br/>
+	
+	<%= image_tag(project.image, :size => "200x300") %><br/><br/>
 
-	<%= image_tag(project.image, :size => "200x300") %><br/>
+<div class="btn btn-small btn-info">
+	<%= link_to 'Details', project %>
+</div>
+	<hr>
+		
+
 
 <% end %>
