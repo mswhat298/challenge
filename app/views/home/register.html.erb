@@ -1,0 +1,29 @@
+<h3>Register for your free account!</h1>
+
+<%= form_tag :action => 'newuser' do %>
+	<p>
+	<b>Screen Name: </b><br/>
+	<%= text_field_tag :name %>
+	</p>
+
+	<p>
+	<b>Full Name:</b><br/>
+	<%= text_field_tag :fullname %>
+	</p>
+
+	<p>
+	<b>Email:</b><br/>
+	<%= text_field_tag :email %>
+	</p>
+
+	<p>
+	<b>Password:</b><br/>
+	<%= password_field_tag :password %>
+	</p>
+
+	<p>
+	<%= submit_tag "Create Account" %>
+	</p>
+
+	<% end %>
+

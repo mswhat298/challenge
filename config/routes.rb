@@ -1,10 +1,22 @@
 Challenge::Application.routes.draw do
-  root 'home#index'
-    get "home/index"
-    get "home/signin"
-    get "home/about"
- 
+  root :to => 'home#index'
+        
+  resources :home do
+    collection do
+      get 'index'
+      get 'about'
+      get 'register'
+      post 'newuser'
+    end
+  end
 
+  #      get "home/index"
+   #     get "home/signin"
+    #    get "home/about"
+     #   get "home/register"  
+      #  post "home/newuser"
+ 
+ 
   resources :projects
 
   resources :users
