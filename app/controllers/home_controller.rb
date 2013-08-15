@@ -27,4 +27,18 @@ class HomeController < ApplicationController
     end
   end
 
+  # Validate user login/signin
+  def validate
+    respond_to do |format|
+      user = User.authenticate(params[:name], params[:password])
+      if user
+        session[:user_id] = user.name
+        flash[:notice]='Successfully logged in!'
+      else
+        flash[:notice]='Invalid name/password combo - please try again.'
+      end
+      format.html {redirect_to '/home'}
+  end
+end
+
 end

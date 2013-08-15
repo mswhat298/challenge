@@ -7,24 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<!--<div id="header">
-	<div id="menuleft">
-		<%= link_to 'Home', '/home/index' %>
-	</div>
 
-	<div id="menuright">
-		<%= link_to 'Sign In', '#' %>
-	</div>
-
-</div>-->
 <header class="navbar navbar-fixed-top navbar-inverse">
 	<div class="navbar-inner">
 		<div class="container">
 			<%= link_to 'Home', '/home/index', id: "logo" %>
 				<nav>
 					<ul class="nav pull-left">
-						<li><%= link_to "Sign In", '#' %></li>
+						<li><%= link_to "Sign In", '/home/signin' %></li>
 						<li><%= link_to "Register", '/home/register' %></li>
+						<% if session[:user_id] %>
+						<li><%= link_to session[:user_id] %></li>
+						<% else %>
+						<li><%= link_to "Not Logged In", '#' %></li>
+						<% end %>
+
 					</ul>
 				</nav>
 				<nav>
@@ -43,12 +40,6 @@
 <%= yield %>
 <%= render 'layouts/footer' %>
 </div>
-
-
-<!-- <div id="footer">
-<a href="mailto:mswhat298@gmail.com"><font size="1">Contact Us</font></a><font size="1"> | &copy;2013 Michael Whatley </font>
-</div> -->
-
 
 </body>
 </html>

@@ -1,0 +1,18 @@
+<h3>Sign In</h3>
+
+<%= form_tag :action => 'validate' do %>
+	<p>
+	<b>Username:</b><br/>
+	<%= text_field_tag :name %>
+	</p>
+
+	<p>
+	<b>Password:</b><br/>
+	<%= password_field_tag :password %>
+	</p>
+
+	<p>
+	<%= submit_tag "Sign In" %>
+	</p>
+
+<% end %>
