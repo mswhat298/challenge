@@ -19,9 +19,14 @@ Challenge::Application.routes.draw do
       #  post "home/newuser"
  
  
-  resources :projects
+  resources :projects  
 
-  resources :users
+  resources :users do
+    collection do
+      post 'teach_chk'
+    end
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
