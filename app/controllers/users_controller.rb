@@ -61,7 +61,9 @@ class UsersController < ApplicationController
     end
   end
 
+  ###
   #Registers user as a teacher once they've downloaded a graph & supply list
+  ###
   def teach_chk
 
     if (session[:user_id])
@@ -71,10 +73,8 @@ class UsersController < ApplicationController
       @user.teacher=1
       
           if @user.save
-          flash[:notice] = 'Hello...you are a new teacher!' 
-          format.html {redirect_to '/home'}
-          #format.html {redirect_to '/public/downloads/TINY_sewingroom.pdf' }
-              else
+           format.html { redirect_to '/downloads/TINY_sewingroom.pdf' }
+           else
           flash[:notice] = 'ERROR: You are NOT a new teacher.'
           format.html {redirect_to '/home'}
         end
