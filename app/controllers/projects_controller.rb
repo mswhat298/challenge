@@ -10,6 +10,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    pattern = "1"
+    @users = User.where("teacher = ?", pattern)
   end
 
   # GET /projects/new

@@ -3,8 +3,12 @@
 
 <b>Print out the materials listed below, plus the graph, buy the materials needed, and then go teach someone to stich this project!  When they're finished, have them sign up here and credit you as teacher!
 </b>
+<br/><br/>
 
+<!--ROW SHOWING DESIGN INFO, DOWNLOAD AND TEACHER REGISRATION -->
+<div class="row">
 
+<div class="span3">
 <p>
   <%= image_tag(@project.image, :size => "200x300") %>&nbsp;&nbsp;
   
@@ -13,10 +17,22 @@
   	<%= hidden_field_tag(:user_id, session[:user_id]) %>
   	<%= submit_tag "Download & Teach" %>
   <% end %>
-
-  <br/><br/>
 </p>
+</div>
 
+<div class="span6">
+<p>
+<b>Register Your Teacher For This Challenge:</b><br/>
+<%= form_tag :id => @users do %>
+  <%= select_tag "teacher", options_from_collection_for_select(@users, "id", "fullname") %>
+  <%= submit_tag "Go!" %>
+<% end %>
+</p></div>
+</div>
+
+<!-- ** ROW SHOWING DESIGN NAME AND MATERIALS *** -->
+<div class="row">
+<div class="span12">
 <p>
   <strong>Name:</strong>
   <%= @project.name %>
@@ -26,14 +42,20 @@
   <strong>Materials:</strong>
   <%= @project.materials %>
 </p>
+</div>
 
-
-<p>
-
+<!-- *** BOTTOM ROW/FOOTER AREA -->
+<div class="row">
+<div class="span12">
 <% for user in @project.users %>
-	<%= user.fullname %> - completed on <%= user.created_at %><br>
+  <%= user.fullname %> - completed on <%= user.created_at %><br>
 <% end %>
-</p>
 
+<P>
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+</P>
+</div>
+</div>
+
+
