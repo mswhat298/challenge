@@ -14,13 +14,13 @@
 			<%= link_to 'Home', '/home/index', id: "logo" %>
 				<nav>
 					<ul class="nav pull-left">
+					<% if session[:user_id] %>
+						<li><%= link_to "Modify Acct", '#' %></li>
+						<li><%= link_to session[:user_id], '#' %></li>
+					<% else %>
 						<li><%= link_to "Sign In", '/home/signin' %></li>
 						<li><%= link_to "Register", '/home/register' %></li>
-						<% if session[:user_id] %>
-						<li><%= link_to session[:user_id] %></li>
-						<% else %>
-						<li><%= link_to "Not Logged In", '#' %></li>
-						<% end %>
+					<% end %>
 
 					</ul>
 				</nav>

@@ -8,26 +8,35 @@
 <!--ROW SHOWING DESIGN INFO, DOWNLOAD AND TEACHER REGISRATION -->
 <div class="row">
 
-<div class="span3">
-<p>
-  <%= image_tag(@project.image, :size => "200x300") %>&nbsp;&nbsp;
-  
-  
-  <%= form_tag :action => 'teach_chk', :controller=>"users" do %>
-  	<%= hidden_field_tag(:user_id, session[:user_id]) %>
-  	<%= submit_tag "Download & Teach" %>
-  <% end %>
-</p>
-</div>
+  <div class="span3">
+  <p>
+    <%= image_tag(@project.image, :size => "200x300") %>&nbsp;&nbsp;
+    
+    
+    <%= form_tag :action => 'teach_chk', :controller=>"users" do %>
+    	<%= hidden_field_tag(:user_id, session[:user_id]) %>
+    	<%= submit_tag "Download & Teach" %>
+    <% end %>
+  </p>
+  </div>
 
-<div class="span6">
-<p>
-<b>Register Your Teacher For This Challenge:</b><br/>
-<%= form_tag :id => @users do %>
-  <%= select_tag "teacher", options_from_collection_for_select(@users, "id", "fullname") %>
-  <%= submit_tag "Go!" %>
-<% end %>
-</p></div>
+  <div class="span6">
+  <p>
+  <% if session[:user_id] %>
+      <b>Register Your Teacher For This Challenge:</b><br/>
+      <%= form_tag :action => 'teach_register', :controller => "users" do %>
+        <%= select_tag "teacher", options_from_collection_for_select(@users, "id", "fullname") %>
+        <%= hidden_field_tag(:user_id, session[:user_id]) %>
+        <%= hidden_field_tag(:project_id, @project.id,) %>
+        <%= submit_tag "Go!" %>
+      <% end %>
+  <% else %>
+    <p>
+     <%= link_to "Please login to download challenge.", '/home/signin' %></li>
+     </p>
+  <% end %>
+  </p>
+  </div>
 </div>
 
 <!-- ** ROW SHOWING DESIGN NAME AND MATERIALS *** -->

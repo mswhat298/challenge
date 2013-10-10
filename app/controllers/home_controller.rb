@@ -32,13 +32,14 @@ class HomeController < ApplicationController
     respond_to do |format|
       user = User.authenticate(params[:name], params[:password])
       if user
-        session[:user_id] = user.name
+        session[:user_id] = user.id
         flash[:notice]='Successfully logged in!'
       else
         flash[:notice]='Invalid name/password combo - please try again.'
+        #redirect_to 'home/signin', notice: "Invalid name/password combo - please try again."
       end
-      format.html {redirect_to '/home'}
-  end
+      format.html {redirect_to '/home/signin'}
+    end
 end
 
 end

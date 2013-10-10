@@ -65,7 +65,6 @@ class UsersController < ApplicationController
   #Registers user as a teacher once they've downloaded a graph & supply list
   ###
   def teach_chk
-
     if (session[:user_id])
      @user = User.find_by_name(params[:user_id])
       
@@ -83,6 +82,24 @@ class UsersController < ApplicationController
   else
     flash[:notice] = 'Please log in to download challenge.'
     redirect_to '/home'
+    end
+  end
+
+  #From show page, allows user to select a "teacher", ie who introduced them to the design.
+  def teach_register
+    respond_to do |format|
+      userproject = Userproject.new
+      userproject.project_id = params[:project_id]
+      userproject.user_id = params[:user_id]
+      userproject.teacher = params[:teacher]
+
+      if userproject.save
+          flash[:notice] = "Your teacher has been registered!"
+        else
+          flash[:notice] = "There was a problem, please try again."
+      end
+      format.html {redirect_to '/home'}
+
     end
   end
 

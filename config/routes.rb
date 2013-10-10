@@ -24,8 +24,16 @@ Challenge::Application.routes.draw do
   resources :users do
     collection do
       post 'teach_chk'
+      post 'teach_register'
     end
   end
+
+  resources :userprojects do
+    collection do
+      post 'teach_register'
+    end
+  end
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
