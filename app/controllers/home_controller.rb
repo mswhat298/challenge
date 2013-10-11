@@ -38,8 +38,17 @@ class HomeController < ApplicationController
         flash[:notice]='Invalid name/password combo - please try again.'
         #redirect_to 'home/signin', notice: "Invalid name/password combo - please try again."
       end
-      format.html {redirect_to '/home/signin'}
+      format.html {redirect_to '/home'}
     end
+end
+
+#Logout
+def signout
+  if session[:user_id]
+    session[:user_id] = nil
+    flash[:notice]='Successfully logged out.'
+  end
+  redirect_to '/home'
 end
 
 end

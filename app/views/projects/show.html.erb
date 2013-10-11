@@ -56,6 +56,7 @@
 <!-- *** BOTTOM ROW/FOOTER AREA -->
 <div class="row">
 <div class="span12">
+<h6>Users who have stitched this project:</h6>
 <% for user in @project.users %>
   <%= user.fullname %> - completed on <%= user.created_at %><br>
 <% end %>

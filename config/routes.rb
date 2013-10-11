@@ -7,6 +7,7 @@ Challenge::Application.routes.draw do
       get 'about'
       get 'register'
       get 'signin'
+      get 'signout'
       post 'newuser'
       post 'validate'
     end
